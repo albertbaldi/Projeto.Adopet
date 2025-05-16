@@ -50,7 +50,7 @@ public class PetController : ControllerBase
 
         string _date = DateTime.Now.ToString("yyyy-MM-dd_HH");
         string? path = configuration["LoggerBasePath"];
-        string? template = configuration["LoggerFileTemplate"];
+        string? template = configuration["LoggerFileTemplate"] ?? "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}"; ;
         string filename = $@"{path}/{_date}.adopet.log";
 
         Log.Logger = new LoggerConfiguration()

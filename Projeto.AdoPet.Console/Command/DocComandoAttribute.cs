@@ -1,6 +1,6 @@
 using System;
 
-namespace Projeto.AdoPet.Console;
+namespace Projeto.AdoPet.Console.Command;
 
 [AttributeUsage(AttributeTargets.Class)]
 public class DocComandoAttribute : Attribute

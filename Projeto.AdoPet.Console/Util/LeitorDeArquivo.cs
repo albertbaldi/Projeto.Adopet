@@ -1,6 +1,7 @@
 using System;
+using Projeto.AdoPet.Console.Model;
 
-namespace Projeto.AdoPet.Console;
+namespace Projeto.AdoPet.Console.Util;
 
 public class LeitorDeArquivo
 {

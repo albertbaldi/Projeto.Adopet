@@ -1,10 +1,17 @@
 using System;
+using Projeto.AdoPet.Console.Model;
+using Projeto.AdoPet.Console.Service;
 
-namespace Projeto.AdoPet.Console;
+namespace Projeto.AdoPet.Console.Command;
 
 [DocComando("list", "adopet list comando que exibe no terminal o conteúdo cadastrado na base de dados da AdoPet")]
-public class List
+public class List : IComando
 {
+    public Task ExecutarAsync(string[] args)
+    {
+        return this.ListaDadosPetsDaAPIAsync();
+    }
+
     internal async Task ListaDadosPetsDaAPIAsync()
     {
         var httpListPet = new HttpClientPet();

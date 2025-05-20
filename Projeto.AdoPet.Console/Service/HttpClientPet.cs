@@ -1,7 +1,8 @@
 using System;
 using System.Net.Http.Json;
+using Projeto.AdoPet.Console.Model;
 
-namespace Projeto.AdoPet.Console;
+namespace Projeto.AdoPet.Console.Service;
 
 public class HttpClientPet
 {

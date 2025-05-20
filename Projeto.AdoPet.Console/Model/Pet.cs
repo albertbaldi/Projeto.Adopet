@@ -1,6 +1,6 @@
 using System;
 
-namespace Projeto.AdoPet.Console;
+namespace Projeto.AdoPet.Console.Model;
 
 public class Pet
 {

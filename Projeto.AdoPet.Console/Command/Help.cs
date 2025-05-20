@@ -1,11 +1,28 @@
 using System;
+using System.Reflection;
 
-namespace Projeto.AdoPet.Console;
+namespace Projeto.AdoPet.Console.Command;
 
 [DocComando("help", "adopet help comando que exibe informações de ajuda")]
-public class Help
+public class Help : IComando
 {
-    public void ExibeDocumentacao(string[] parametros)
+    private Dictionary<string, DocComandoAttribute> docs;
+
+    public Help()
+    {
+        docs = Assembly.GetExecutingAssembly().GetTypes()
+            .Where(t => t.GetCustomAttributes<DocComandoAttribute>().Any())
+            .Select(t => t.GetCustomAttribute<DocComandoAttribute>()!)
+            .ToDictionary(d => d.Instrucao);
+    }
+
+    public Task ExecutarAsync(string[] args)
+    {
+        this.ExibeDocumentacao(parametros: args);
+        return Task.CompletedTask;
+    }
+
+    private void ExibeDocumentacao(string[] parametros)
     {
         if (parametros.Length == 1)
         {
